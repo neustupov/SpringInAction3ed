@@ -11,4 +11,6 @@
 
     <bean id="sonnet29" class="ru.neustupov.springidol.Sonnet29" />
 
+    <bean id="theStage" class="ru.neustupov.springidol.Stage" factory-method="getInstance"/>
+
 </beans>
