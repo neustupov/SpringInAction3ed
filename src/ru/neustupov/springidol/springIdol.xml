@@ -16,10 +16,7 @@
 
     <bean id="theStage" class="ru.neustupov.springidol.Stage" factory-method="getInstance"/>
 
-    <bean id="kenny" class="ru.neustupov.springidol.performers.Instrumentalist"
-          p:song="Jingle Bells"
-          p:instrument-ref="saxophone"
-    />
+    <bean id="kenny" parent="baseSaxofonist" />
 
     <bean id="saxophone" class="ru.neustupov.springidol.instruments.Saxophone"/>
 
@@ -39,5 +36,31 @@
     <bean id="karl" class="ru.neustupov.springidol.performers.Instrumentalist">
         <property name="song" value="#{kenny.song}"/>
     </bean>
+
+    <bean id="baseSaxofonist" class="ru.neustupov.springidol.performers.Instrumentalist"
+          abstract="true">
+        <property name="instrument" ref="saxophone"/>
+        <property name="song" value="Jingle Bells"/>
+    </bean>
+
+    <bean id="frank" parent="baseSaxofonist">
+        <property name="song" value="Mary had a little lamb"/>
+    </bean>
+
+    <bean id="taylor" class="ru.neustupov.springidol.performers.Vocalist">
+        <property name="song" value="Somewhere Over the Rainbow"/>
+    </bean>
+
+    <bean id="steve" class="ru.neustupov.springidol.performers.Instrumentalist">
+        <property name="instrument" ref="guitar"/>
+        <property name="song" value="Somewhere Over the Rainbow"/>
+    </bean>
+
+    <bean id="harry" class="ru.neustupov.springidol.performers.Magician">
+        <property name="magicBox" ref="magicBox"/>
+        <property name="magicWords" value="Bippity boppity boo"/>
+    </bean>
+
+    <bean id="magicBox" class="ru.neustupov.springidol.instruments.MagicBoxImpl"/>
 
 </beans>

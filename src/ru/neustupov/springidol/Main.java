@@ -10,5 +10,8 @@ public class Main {
         ApplicationContext ctx = new ClassPathXmlApplicationContext("ru/neustupov/springidol/springIdol.xml");
         Performer performer = (Performer)ctx.getBean("kenny");
         performer.perform();
+
+        Performer magician = (Performer)ctx.getBean("harry");
+        magician.perform();
     }
 }
