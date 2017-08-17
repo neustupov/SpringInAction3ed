@@ -1,4 +1,4 @@
-package ru.neustupov.springidol;
+package ru.neustupov.springidol.instruments;
 
 public class Saxophone implements Instrument {
     public Saxophone() {

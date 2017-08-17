@@ -1,6 +1,8 @@
-package ru.neustupov.springidol;
+package ru.neustupov.springidol.performers;
 
-public class PoeticJuggler extends Juggler{
+import ru.neustupov.springidol.Poem;
+
+public class PoeticJuggler extends Juggler {
     private Poem poem;
 
     public PoeticJuggler(Poem poem) {

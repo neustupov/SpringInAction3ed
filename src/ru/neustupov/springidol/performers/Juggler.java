@@ -1,4 +1,4 @@
-package ru.neustupov.springidol;
+package ru.neustupov.springidol.performers;
 
 public class Juggler implements Performer {
     private int beanBags = 3;

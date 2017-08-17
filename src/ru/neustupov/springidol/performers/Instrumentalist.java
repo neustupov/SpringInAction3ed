@@ -1,5 +1,7 @@
-package ru.neustupov.springidol;
+package ru.neustupov.springidol.performers;
 
+
+import ru.neustupov.springidol.instruments.Instrument;
 
 public class Instrumentalist implements Performer {
     public Instrumentalist() {
