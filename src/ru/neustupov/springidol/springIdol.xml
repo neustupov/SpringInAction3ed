@@ -13,4 +13,10 @@
 
     <bean id="theStage" class="ru.neustupov.springidol.Stage" factory-method="getInstance"/>
 
+    <bean id="kenny" class="ru.neustupov.springidol.Instrumentalist">
+    <property name="song" value="Jingle Bells"/>
+    </bean>
+
+    <bean id="saxophone" class="ru.neustupov.springidol.Saxophone"/>
+
 </beans>
