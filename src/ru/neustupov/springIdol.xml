@@ -96,4 +96,13 @@
         </property>
     </bean>
 
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${database.url}"/>
+    </bean>
+    <!--
+    <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="jdbc.properties"/>
+    </bean>
+    -->
+
 </beans>
