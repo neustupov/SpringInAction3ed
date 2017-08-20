@@ -7,7 +7,7 @@ import ru.neustupov.springidol.performers.Performer;
 public class Main {
 
     public static void main(String[] args) {
-        ApplicationContext ctx = new ClassPathXmlApplicationContext("ru/neustupov/springidol/springIdol.xml");
+        ApplicationContext ctx = new ClassPathXmlApplicationContext("ru/neustupov/springIdol.xml");
         Performer performer = (Performer)ctx.getBean("kenny");
         performer.perform();
 

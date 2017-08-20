@@ -33,9 +33,11 @@
     </property>
     </bean>
 
+    <!--
     <bean id="karl" class="ru.neustupov.springidol.performers.Instrumentalist">
         <property name="song" value="#{kenny.song}"/>
     </bean>
+    -->
 
     <bean id="baseSaxofonist" class="ru.neustupov.springidol.performers.Instrumentalist"
           abstract="true">
@@ -51,16 +53,47 @@
         <property name="song" value="Somewhere Over the Rainbow"/>
     </bean>
 
+    <!--
     <bean id="steve" class="ru.neustupov.springidol.performers.Instrumentalist">
         <property name="instrument" ref="guitar"/>
         <property name="song" value="Somewhere Over the Rainbow"/>
     </bean>
+    -->
 
     <bean id="harry" class="ru.neustupov.springidol.performers.Magician">
         <property name="magicBox" ref="magicBox"/>
         <property name="magicWords" value="Bippity boppity boo"/>
     </bean>
 
-    <bean id="magicBox" class="ru.neustupov.springidol.instruments.MagicBoxImpl"/>
+    <bean id="magicBox" class="ru.neustupov.springidol.instruments.MagicBoxImpl">
+    <replaced-method name="getContents" replacer="tigerReplacer"/>
+    </bean>
+
+    <bean id="tigerReplacer" class="ru.neustupov.springidol.TigerReplacer"/>
+
+    <bean id="stevie" class="ru.neustupov.springidol.performers.Instrumentalist">
+        <lookup-method name="getInstrument" bean="guitar"/>
+        <property name="song" value="Greensleevers"/>
+    </bean>
+
+    <bean id="infoPhone" class="ru.neustupov.chapter03.PhoneNumber">
+        <constructor-arg value="888"/>
+        <constructor-arg value="555"/>
+        <constructor-arg value="1212"/>
+    </bean>
+
+    <bean id="contact" class="ru.neustupov.chapter03.Contact">
+        <property name="phoneNumber" value="888-555-1212"/>
+    </bean>
+
+    <bean class="org.springframework.beans.factory.config.CustomEditorConfigurer">
+        <property name="customEditors">
+            <map>
+                <entry key="ru.neustupov.chapter03.PhoneNumber">
+                    <bean id="phoneEditor" class="ru.neustupov.chapter03.PhoneEditor"/>
+                </entry>
+            </map>
+        </property>
+    </bean>
 
 </beans>
