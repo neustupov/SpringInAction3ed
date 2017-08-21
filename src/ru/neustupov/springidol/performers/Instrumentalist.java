@@ -1,8 +1,10 @@
 package ru.neustupov.springidol.performers;
 
 
+import org.springframework.stereotype.Component;
 import ru.neustupov.springidol.instruments.Instrument;
 
+@Component("eddie")
 public abstract class Instrumentalist implements Performer {
     public Instrumentalist() {
     }
@@ -10,7 +12,7 @@ public abstract class Instrumentalist implements Performer {
     @Override
     public void perform() {
         System.out.println("Playing " + song + " : ");
-        getInstrument().play();
+        instrument.play();
     }
 
     private String song;
@@ -33,5 +35,5 @@ public abstract class Instrumentalist implements Performer {
         this.instrument = instrument;
     }
 
-    public abstract Instrument getInstrument();
+    //public abstract Instrument getInstrument();
 }
