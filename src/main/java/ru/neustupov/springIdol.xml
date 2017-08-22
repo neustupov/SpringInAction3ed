@@ -140,4 +140,32 @@
         </aop:aspect>
     </aop:config>
 
+    <aop:config>
+        <aop:aspect ref="audience">
+            <aop:pointcut id="perfomance2"
+                          expression="execution(* ru.neustupov.springidol.performers.Performer.perform(..))"/>
+            <aop:around pointcut-ref="perfomance2" method="watchPerfomance"/>
+        </aop:aspect>
+    </aop:config>
+
+    <bean id="magicianMindRader" class="ru.neustupov.springidol.performers.MagicianMindReader"/>
+
+    <aop:config>
+        <aop:aspect ref="magicianMindRader">
+            <aop:pointcut id="thinking"
+                          expression="execution(*
+                          ru.neustupov.springidol.performers.Thinker.thinkOfSomething(String))
+                          and args(thoughts)"/>
+            <aop:before pointcut-ref="thinking" method="interceptThoughts" arg-names="thoughts"/>
+        </aop:aspect>
+    </aop:config>
+
+    <aop:config>
+        <aop:aspect>
+
+        <aop:declare-parents types-matching="ru.neustupov.springidol.performers.Performer+"
+                             implemets-interface="ru.neustupov.springidol.performers.Contestant"
+                             default-impl="ru.neustupov.springidol.performers.GraciousContestant"/>
+        </aop:aspect>
+    </aop:config>
 </beans>
