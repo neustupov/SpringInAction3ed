@@ -6,7 +6,6 @@ public class Magician implements Performer {
     public Magician() {
     }
 
-    @Override
     public void perform() {
         System.out.println(magicWords);
         System.out.println("The magic box contains ... ");
