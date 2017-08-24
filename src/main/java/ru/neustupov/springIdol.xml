@@ -114,10 +114,11 @@
         </property>
     </bean>
 
+    <!--
     <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="url" value="${database.url}"/>
     </bean>
-    <!--
+
     <bean id="propertyConfigurer" class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
         <property name="location" value="jdbc.properties"/>
     </bean>
@@ -187,9 +188,29 @@
         </property>
     </bean>
 
+    <!--
     <bean class="ru.neustupov.springidol.JudgeAspect"
           factory-method="aspectOf">
         <property name="criticismEngine" ref="criticismEngine"/>
     </bean>
+    -->
 
+    <!--             Chapter 6         -->
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver" />
+        <property name="url" value="jdbc:mysql://localhost:3306/test"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <bean id="sessioFactory" class="org.springframework.orm.hibernate3.annotation.AnnotationSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="packagesToScan" value="ru.neustupov.spitter.domain"/>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="dialect">org.hibernate.dialect.MySQLDialect</prop>
+            </props>
+        </property>
+    </bean>
 </beans>
