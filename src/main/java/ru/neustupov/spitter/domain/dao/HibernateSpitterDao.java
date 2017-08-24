@@ -3,7 +3,9 @@ package ru.neustupov.spitter.domain.dao;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public class HibernateSpitterDao implements SpitterDao {
     private SessionFactory sessionFactory;
 
